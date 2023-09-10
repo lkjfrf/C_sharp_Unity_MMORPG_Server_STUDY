@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\workspace\\Git\\C_sharp_Unity_MMORPG_Server_STUDY\\ServerCore\\ServerCore.csproj": {}
+    "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\ServerCore\\ServerCore.csproj": {}
   },
   "projects": {
-    "D:\\workspace\\Git\\C_sharp_Unity_MMORPG_Server_STUDY\\ServerCore\\ServerCore.csproj": {
+    "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\ServerCore\\ServerCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\workspace\\Git\\C_sharp_Unity_MMORPG_Server_STUDY\\ServerCore\\ServerCore.csproj",
+        "projectUniqueName": "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\ServerCore\\ServerCore.csproj",
         "projectName": "ServerCore",
-        "projectPath": "D:\\workspace\\Git\\C_sharp_Unity_MMORPG_Server_STUDY\\ServerCore\\ServerCore.csproj",
+        "projectPath": "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\ServerCore\\ServerCore.csproj",
         "packagesPath": "C:\\Users\\lkjfr\\.nuget\\packages\\",
-        "outputPath": "D:\\workspace\\Git\\C_sharp_Unity_MMORPG_Server_STUDY\\ServerCore\\obj\\",
+        "outputPath": "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\ServerCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

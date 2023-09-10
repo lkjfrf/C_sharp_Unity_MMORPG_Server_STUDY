@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\workspace\\Git\\C_sharp_Unity_MMORPG_Server_STUDY\\Server.csproj",
+      "projectUniqueName": "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\Server.csproj",
       "projectName": "Server",
-      "projectPath": "D:\\workspace\\Git\\C_sharp_Unity_MMORPG_Server_STUDY\\Server.csproj",
+      "projectPath": "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\Server.csproj",
       "packagesPath": "C:\\Users\\lkjfr\\.nuget\\packages\\",
-      "outputPath": "D:\\workspace\\Git\\C_sharp_Unity_MMORPG_Server_STUDY\\obj\\",
+      "outputPath": "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -66,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
