@@ -12,14 +12,18 @@ namespace ServerCore
     class Listener
     {
         Socket _listenSocket;
-        Action<Socket> _onAcceptHandler;
+        /*Action<Socket> _onAcceptHandler;*/
+        Func<Session> _sessionFactory;
 
 
-        public void Init(IPEndPoint endPoint, Action<Socket> onAcceptHandler)
+        public void Init(IPEndPoint endPoint, Func<Session>  sessionFactory)
         {
             _listenSocket = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-            _onAcceptHandler = onAcceptHandler;
+            _sessionFactory += sessionFactory;
+
+            //문지기 교육
             _listenSocket.Bind(endPoint);
+            //영업시작 최대갯수
             _listenSocket.Listen(10);
 
             //SocketAsyncEventArgs 쓰는 이유는 AcceptAsync()함수를 활용하여 비동기 방식으로 처리할때
@@ -49,8 +53,9 @@ namespace ServerCore
         {
             if (args.SocketError == SocketError.Success)
             {
-                // 나중에 Accpet됐을때 등록해 주기위함
-                _onAcceptHandler.Invoke(args.AcceptSocket);
+                GameSession session = new GameSession();
+                session.Start(args.AcceptSocket);
+                session.OnConnected(args.AcceptSocket.RemoteEndPoint);
             }
             else
                 Console.WriteLine(args.SocketError.ToString());

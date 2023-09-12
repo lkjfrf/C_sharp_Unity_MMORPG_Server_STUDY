@@ -5,6 +5,34 @@ using System.Net.WebSockets;
 
 namespace ServerCore
 {
+    class GameSession : Session
+    {
+        public override void OnConnected(EndPoint endPoint)
+        {
+            Console.WriteLine($"Transferred bytes: {endPoint}");
+
+        }
+
+        public override void OnDisconnected(EndPoint endPoint)
+        {
+            Console.WriteLine($"Transferred bytes: {endPoint}");
+
+        }
+
+        public override void OnRecv(ArraySegment<byte> buffer)
+        {
+            string recvData = Encoding.UTF8.GetString(buffer.Array, buffer.Offset, buffer.Count);
+            Console.WriteLine($"[From Client] {recvData}");
+
+        }
+
+        public override void OnSend(int numOfBytes)
+        {
+            Console.WriteLine($"Transferred bytes: {numOfBytes}");
+
+        }
+    }
+
     class Program
     {
         static Listener _listener = new Listener(); 
@@ -13,21 +41,17 @@ namespace ServerCore
         {
             try
             {
-                //2. 받는다
-                byte[] recvBuff = new byte[1024];
-                int recvBytes = clientSocket.Receive(recvBuff);
-                string recvData = Encoding.UTF8.GetString(recvBuff, 0, recvBytes);
-                Console.WriteLine($"[From Client] {recvData}");
+                GameSession session = new GameSession();
+                session.Start(clientSocket);
 
-                //3. 보낸다
                 byte[] sendBuff = Encoding.UTF8.GetBytes("Welcome to MMORPG Server !");
-                clientSocket.Send(sendBuff);
+                session.Send(sendBuff);
 
-                //4. 쫒아낸다
-                clientSocket.Shutdown(SocketShutdown.Both);
-                clientSocket.Close();
+                Thread.Sleep(1000);
+
+                session.Disconnect();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e);
             }
