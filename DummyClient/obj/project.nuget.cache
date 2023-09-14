@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9h9G4lXfbSsy4KGyh3NTi3h/FRBXGnZFB8PqReJ2ZC+KcQlPfsNoZKtcwyuhDxyoq7ejz0KJv4fW+hBOWrQriA==",
+  "dgSpecHash": "EVxvXQZ2dQvoDglDietR50Rbo0myC1v+ZQWMeBSMGfjlSbt5oYAsgnxpwWcSxX+6mrsbL9i33QT+cBwXlIXUqw==",
   "success": true,
-  "projectFilePath": "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\DummyClient\\DummyClient.csproj",
+  "projectFilePath": "D:\\workspace\\Git\\C_sharp_Unity_MMORPG_Server_STUDY\\DummyClient\\DummyClient.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

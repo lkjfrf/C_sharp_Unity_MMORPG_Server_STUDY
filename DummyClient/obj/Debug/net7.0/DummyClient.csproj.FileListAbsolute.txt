@@ -28,3 +28,6 @@ D:\WorkSpace\C_sharp_Unity_MMORPG_Server_STUDY\DummyClient\obj\Debug\net7.0\refi
 D:\WorkSpace\C_sharp_Unity_MMORPG_Server_STUDY\DummyClient\obj\Debug\net7.0\DummyClient.pdb
 D:\WorkSpace\C_sharp_Unity_MMORPG_Server_STUDY\DummyClient\obj\Debug\net7.0\DummyClient.genruntimeconfig.cache
 D:\WorkSpace\C_sharp_Unity_MMORPG_Server_STUDY\DummyClient\obj\Debug\net7.0\ref\DummyClient.dll
+D:\workspace\Git\C_sharp_Unity_MMORPG_Server_STUDY\DummyClient\bin\Debug\net7.0\ServerCore.dll
+D:\workspace\Git\C_sharp_Unity_MMORPG_Server_STUDY\DummyClient\bin\Debug\net7.0\ServerCore.pdb
+D:\workspace\Git\C_sharp_Unity_MMORPG_Server_STUDY\DummyClient\obj\Debug\net7.0\DummyClient.csproj.CopyComplete

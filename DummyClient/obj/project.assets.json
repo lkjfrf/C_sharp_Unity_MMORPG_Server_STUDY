@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {}
+    "net7.0": {
+      "ServerCore/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/ServerCore.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ServerCore.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "ServerCore/1.0.0": {
+      "type": "project",
+      "path": "../ServerCore/ServerCore.csproj",
+      "msbuildProject": "../ServerCore/ServerCore.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0": []
+    "net7.0": [
+      "ServerCore >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\lkjfr\\.nuget\\packages\\": {},
@@ -14,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\DummyClient\\DummyClient.csproj",
+      "projectUniqueName": "D:\\workspace\\Git\\C_sharp_Unity_MMORPG_Server_STUDY\\DummyClient\\DummyClient.csproj",
       "projectName": "DummyClient",
-      "projectPath": "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\DummyClient\\DummyClient.csproj",
+      "projectPath": "D:\\workspace\\Git\\C_sharp_Unity_MMORPG_Server_STUDY\\DummyClient\\DummyClient.csproj",
       "packagesPath": "C:\\Users\\lkjfr\\.nuget\\packages\\",
-      "outputPath": "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\DummyClient\\obj\\",
+      "outputPath": "D:\\workspace\\Git\\C_sharp_Unity_MMORPG_Server_STUDY\\DummyClient\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -38,7 +57,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\workspace\\Git\\C_sharp_Unity_MMORPG_Server_STUDY\\ServerCore\\ServerCore.csproj": {
+              "projectPath": "D:\\workspace\\Git\\C_sharp_Unity_MMORPG_Server_STUDY\\ServerCore\\ServerCore.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -66,7 +89,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

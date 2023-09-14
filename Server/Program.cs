@@ -1,20 +1,21 @@
-﻿using System.Net.Sockets;
+﻿using System;
+using System.Collections.Generic;
 using System.Net;
+using System.Net.Sockets;
 using System.Text;
-using System.Net.WebSockets;
+using System.Threading;
+using System.Threading.Tasks;
+using ServerCore;
 
-namespace ServerCore
+namespace Server
 {
     class GameSession : Session
     {
         public override void OnConnected(EndPoint endPoint)
         {
-            Console.WriteLine($"Transferred bytes: {endPoint}");
+            Console.WriteLine($"OnConnected: {endPoint}");
 
-            byte[] sendBuff = Encoding.UTF8.GetBytes("Welcome to MMORPG Server !");
-            Send(sendBuff);
-            Thread.Sleep(1000);
-            Disconnect();
+            
         }
 
         public override void OnDisconnected(EndPoint endPoint)
@@ -26,7 +27,7 @@ namespace ServerCore
         public override void OnRecv(ArraySegment<byte> buffer)
         {
             string recvData = Encoding.UTF8.GetString(buffer.Array, buffer.Offset, buffer.Count);
-            Console.WriteLine($"[From Client] {recvData}");
+            Console.WriteLine($"[From Server] {recvData}");
 
         }
 
@@ -39,26 +40,23 @@ namespace ServerCore
 
     class Program
     {
-        static Listener _listener = new Listener(); 
-        
+        static Listener _listener = new Listener();
 
         static void Main(string[] args)
         {
-
-            //DNS (Domain Name System)
-            string host = Dns.GetHostName(); // 로컬PC의 호스트 이름
+            // DNS (Domain Name System)
+            string host = Dns.GetHostName();
             IPHostEntry ipHost = Dns.GetHostEntry(host);
             IPAddress ipAddr = ipHost.AddressList[0];
             IPEndPoint endPoint = new IPEndPoint(ipAddr, 7777);
 
             _listener.Init(endPoint, () => { return new GameSession(); });
-            Console.WriteLine("Listening ...");
+            Console.WriteLine("Listening...");
 
             while (true)
             {
                 ;
             }
-            
         }
     }
 }
