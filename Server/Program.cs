@@ -15,7 +15,9 @@ namespace Server
         {
             Console.WriteLine($"OnConnected: {endPoint}");
 
-            
+            ArraySegment<byte> openSegment = SendBufferHelper.Open(4096);
+
+            ArraySegment<byte> sendBuff= SendBufferHelper.Close(8);
         }
 
         public override void OnDisconnected(EndPoint endPoint)
@@ -24,11 +26,12 @@ namespace Server
 
         }
 
-        public override void OnRecv(ArraySegment<byte> buffer)
+        public override int OnRecv(ArraySegment<byte> buffer)
         {
             string recvData = Encoding.UTF8.GetString(buffer.Array, buffer.Offset, buffer.Count);
             Console.WriteLine($"[From Server] {recvData}");
 
+            return buffer.Count();
         }
 
         public override void OnSend(int numOfBytes)
