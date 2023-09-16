@@ -31,15 +31,16 @@ namespace ServerCore
                     break;
 
                 //여기까지 왔으면 패킷 조립 가능 (다 도착한거임)
-                OnRecvPacket();
+                OnRecvPacket(new ArraySegment<byte>(buffer.Array, buffer.Offset, dataSize));
 
                 processLen += dataSize;
+                buffer = new ArraySegment<byte> (buffer.Array, buffer.Offset + dataSize, buffer.Count - dataSize);
             }
 
             return 0;
         }
 
-        public abstract void OnRecvPacket();
+        public abstract void OnRecvPacket(ArraySegment<byte>buffer);
     }
 
     public abstract class Session
