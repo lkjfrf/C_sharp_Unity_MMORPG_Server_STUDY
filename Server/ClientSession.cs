@@ -8,21 +8,59 @@ using System.Threading.Tasks;
 
 namespace Server
 {
-    class Packet
+    public abstract class Packet
     {
         public ushort size;
         public ushort packetId;
+
+        public abstract ArraySegment<byte> Write();
+        public abstract void Read(ArraySegment<byte> s);
     }
 
     class PlayerInfoReq : Packet
     {
         public long playerId;
-    }
 
-    class PlayerInfoOk : Packet
-    {
-        public int hp;
-        public int attack;
+        public PlayerInfoReq()
+        {
+            this.packetId = (ushort)PacketID.PlayerInfoReq;
+        }
+
+        public override void Read(ArraySegment<byte> s)
+        {
+            ushort count = 0;
+
+            //ushort size = BitConverter.ToUInt16(s.Array, s.Offset);
+            count +=2;
+            //ushort id = BitConverter.ToUInt16(s.Array, s.Offset+count);
+            count +=2;
+
+            BitConverter.ToInt64(new ReadOnlySpan<byte>(s.Array, s.Offset + count, s.Count - count));
+            count += 8;
+        }
+
+        public override ArraySegment<byte> Write()
+        {
+            ArraySegment<byte> s = SendBufferHelper.Open(4096);
+
+            ushort count = 0;
+            bool success = true;
+
+            // AND대입 연산자로 한번이라도 실패하면 success를 false로 만듬
+            //success &= BitConverter.TryWriteBytes(new Span<byte>(s.Array, s.Offset + count, s.Count-count), packet.size);
+            count += 2;
+            success &= BitConverter.TryWriteBytes(new Span<byte>(s.Array, s.Offset + count, s.Count-count), this.packetId);
+            count += 2;
+            success &= BitConverter.TryWriteBytes(new Span<byte>(s.Array, s.Offset + count, s.Count- count), this.playerId);
+            count += 8;
+            // size는 가장 마지막에 알게 되므로 마지막에 추가
+            success &= BitConverter.TryWriteBytes(new Span<byte>(s.Array, s.Offset, s.Count), count);
+
+            if (success == false)
+                return null;
+
+            return SendBufferHelper.Close(count);
+        }
     }
 
     public enum PacketID
@@ -51,10 +89,25 @@ namespace Server
 
         public override void OnRecvPacket(ArraySegment<byte> buffer)
         {
+            ushort count = 0;
+
+
             ushort size = BitConverter.ToUInt16(buffer.Array, buffer.Offset);
-            ushort id = BitConverter.ToUInt16(buffer.Array, buffer.Offset+2);
+            count +=2;
+            ushort id = BitConverter.ToUInt16(buffer.Array, buffer.Offset+count);
+            count +=2;
+
+            switch ((PacketID)id)
+            {
+                case PacketID.PlayerInfoReq:
+                    {
+                        PlayerInfoReq p = new PlayerInfoReq();
+                        p.Read(buffer);
+                        Console.WriteLine($"PlayerInfoReq: {p.playerId}");
+                    }
+                    break;
+            }
             Console.WriteLine($"RecvPacketId: {id}, Size {size}");
-            throw new NotImplementedException();
         }
 
         public override void OnSend(int numOfBytes)

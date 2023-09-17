@@ -10,9 +10,7 @@ D:\workspace\Git\C_sharp_Unity_MMORPG_Server_STUDY\ServerCore\obj\Debug\net7.0\S
 D:\workspace\Git\C_sharp_Unity_MMORPG_Server_STUDY\ServerCore\obj\Debug\net7.0\refint\ServerCore.dll
 D:\workspace\Git\C_sharp_Unity_MMORPG_Server_STUDY\ServerCore\obj\Debug\net7.0\ServerCore.pdb
 D:\workspace\Git\C_sharp_Unity_MMORPG_Server_STUDY\ServerCore\obj\Debug\net7.0\ref\ServerCore.dll
-D:\WorkSpace\C_sharp_Unity_MMORPG_Server_STUDY\ServerCore\bin\Debug\net7.0\ServerCore.exe
 D:\WorkSpace\C_sharp_Unity_MMORPG_Server_STUDY\ServerCore\bin\Debug\net7.0\ServerCore.deps.json
-D:\WorkSpace\C_sharp_Unity_MMORPG_Server_STUDY\ServerCore\bin\Debug\net7.0\ServerCore.runtimeconfig.json
 D:\WorkSpace\C_sharp_Unity_MMORPG_Server_STUDY\ServerCore\bin\Debug\net7.0\ServerCore.dll
 D:\WorkSpace\C_sharp_Unity_MMORPG_Server_STUDY\ServerCore\bin\Debug\net7.0\ServerCore.pdb
 D:\WorkSpace\C_sharp_Unity_MMORPG_Server_STUDY\ServerCore\obj\Debug\net7.0\ServerCore.csproj.AssemblyReference.cache
@@ -23,5 +21,4 @@ D:\WorkSpace\C_sharp_Unity_MMORPG_Server_STUDY\ServerCore\obj\Debug\net7.0\Serve
 D:\WorkSpace\C_sharp_Unity_MMORPG_Server_STUDY\ServerCore\obj\Debug\net7.0\ServerCore.dll
 D:\WorkSpace\C_sharp_Unity_MMORPG_Server_STUDY\ServerCore\obj\Debug\net7.0\refint\ServerCore.dll
 D:\WorkSpace\C_sharp_Unity_MMORPG_Server_STUDY\ServerCore\obj\Debug\net7.0\ServerCore.pdb
-D:\WorkSpace\C_sharp_Unity_MMORPG_Server_STUDY\ServerCore\obj\Debug\net7.0\ServerCore.genruntimeconfig.cache
 D:\WorkSpace\C_sharp_Unity_MMORPG_Server_STUDY\ServerCore\obj\Debug\net7.0\ref\ServerCore.dll

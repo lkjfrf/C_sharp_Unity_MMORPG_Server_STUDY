@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ic1zjXY3RIuGjO+YFmIbYc8466xsvgYsjCMcVpjL5yVWD+V/0RzOOAvwlJLCxGpeOfWNFN9CIFSTNJ157jd1ow==",
+  "dgSpecHash": "ZFeZORegBXWgP1Jq+emvHfrnCCJ79yO9lQV+Qq4QVjgc6Y1Qzlci66Xw+5c+ejE6ap2Dv+jHAM2ltw9LKNIunQ==",
   "success": true,
-  "projectFilePath": "D:\\workspace\\Git\\C_sharp_Unity_MMORPG_Server_STUDY\\ServerCore\\ServerCore.csproj",
+  "projectFilePath": "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\ServerCore\\ServerCore.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
