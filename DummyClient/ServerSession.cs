@@ -16,49 +16,62 @@ namespace DummyClient
     class PlayerInfoReq : Packet
     {
         public long playerId;
+        public string name;
 
         public PlayerInfoReq()
         {
             this.packetId = (ushort)PacketID.PlayerInfoReq;
         }
 
-        public override void Read(ArraySegment<byte> s)
+        public override void Read(ArraySegment<byte> segment)
         {
             ushort count = 0;
+            
+            ReadOnlySpan<byte> s = new ReadOnlySpan<byte>(segment.Array, segment.Offset, segment.Count);
+            count += sizeof(ushort);
+            count += sizeof(ushort);
 
-            //ushort size = BitConverter.ToUInt16(s.Array, s.Offset);
-            count +=2;
-            //ushort id = BitConverter.ToUInt16(s.Array, s.Offset+count);
-            count +=2;
+            this.playerId = BitConverter.ToInt64(s.Slice(count, s.Length - count));
+            count += sizeof(long);
 
-            //long playerId = BitConverter.ToInt64(s.Array, s.Offset+count); 이거였지만 안전하지 않음
-            //Span 역할이 ArraySegment 처럼 배열의 특정부분을 찝어주는 역할을 하는데 이걸통해 ReadOnlySpan 이
-            //Exception 이 난다면 이 부분에서 실패했다는걸 알 수 있음
-            BitConverter.ToInt64(new ReadOnlySpan<byte>(s.Array, s.Offset + count, s.Count - count));
-            count += 8;
+            ushort nameLen = BitConverter.ToUInt16(s.Slice(count, s.Length - count));
+            count += sizeof(ushort);
+            this.name = Encoding.Unicode.GetString(s.Slice(count, nameLen));
+
         }
 
         public override ArraySegment<byte> Write()
         {
-            ArraySegment<byte> s = SendBufferHelper.Open(4096);
+            ArraySegment<byte> segment = SendBufferHelper.Open(4096);
 
             ushort count = 0;
             bool success = true;
 
-            // AND대입 연산자로 한번이라도 실패하면 success를 false로 만듬
-            //success &= BitConverter.TryWriteBytes(new Span<byte>(s.Array, s.Offset + count, s.Count-count), packet.size);
-            count += 2;
-            success &= BitConverter.TryWriteBytes(new Span<byte>(s.Array, s.Offset + count, s.Count-count), this.packetId);
-            count += 2;
-            success &= BitConverter.TryWriteBytes(new Span<byte>(s.Array, s.Offset + count, s.Count- count), this.playerId);
-            count += 8;
+            Span<byte> s = new Span<byte> (segment.Array, segment.Offset, segment.Count);
+
+            count += sizeof(ushort);
+            // Slice, Span 둘다 가능한데 Slice로 한번 바꿔봄
+            // Span(start, Lenght) => 반환값 slice된 Span 
+            success &= BitConverter.TryWriteBytes(s.Slice(count, s.Length- count), this.packetId);
+            count += sizeof(ushort);
+            success &= BitConverter.TryWriteBytes(s.Slice(count, s.Length- count), this.packetId);
+            count += sizeof(long);  
+           
+
+            // Name의 사이즈랑 Name 보내기
+            ushort nameLen = (ushort)Encoding.Unicode.GetBytes(this.name, 0, this.name.Length, segment.Array, 
+                segment.Offset + count + sizeof(ushort));
+            success &= BitConverter.TryWriteBytes(s.Slice(count, s.Length - count), nameLen);
+            count += sizeof(ushort);
+            count += nameLen;
+
             // size는 가장 마지막에 알게 되므로 마지막에 추가
-            success &= BitConverter.TryWriteBytes(new Span<byte>(s.Array, s.Offset, s.Count), count);
+            success &= BitConverter.TryWriteBytes(s, count);
 
             if (success == false)
                 return null;
 
-            return SendBufferHelper.Close(count);
+              return SendBufferHelper.Close(count);
         }
     }
 
@@ -74,7 +87,7 @@ namespace DummyClient
         {
             Console.WriteLine($"Transferred bytes: {endPoint}");
 
-            PlayerInfoReq packet = new PlayerInfoReq() { playerId = 1001 };
+            PlayerInfoReq packet = new PlayerInfoReq() { playerId = 1001, name = "test" };
 
             //보낸다
             //for (int i = 0; i<5; i++)
