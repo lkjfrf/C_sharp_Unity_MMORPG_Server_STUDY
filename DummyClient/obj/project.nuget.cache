@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "fXgZsDET5HpQoMkjvOT3YnUiDEDkuxus7zOq0Zzrjgd9+LNjwgVd7Mg7zuCPo8cqIJaKi+jX3byLnqXqF2DJSA==",
+  "dgSpecHash": "DyFwMf8uaW12WiGDPDBB83csJ48jRtoJM3+J/CPTeSm6DYtp35mPaREQQRDoWAbmeIZ5SJLBYO7PnxgjUTxPuw==",
   "success": true,
   "projectFilePath": "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\DummyClient\\DummyClient.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\lkjfr\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\lkjfr\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\lkjfr\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\lkjfr\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.32\\microsoft.netcore.app.host.win-x64.3.1.32.nupkg.sha512"
+  ],
   "logs": []
 }
