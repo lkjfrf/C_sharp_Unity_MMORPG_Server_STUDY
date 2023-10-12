@@ -21,19 +21,22 @@ namespace DummyClient
 
 			Connector connector = new Connector();
 
-			connector.Connect(endPoint, () => { return new ServerSession(); });
+			// 10개 접속하게 하기
+			connector.Connect(endPoint, () => { return SessionManager.Instance.Generate(); }, 500);
 
 			while (true)
 			{
 				try
 				{
+					SessionManager.Instance.SendForEach();
 				}
 				catch (Exception e)
 				{
 					Console.WriteLine(e.ToString());
 				}
 
-				Thread.Sleep(100);
+				// 일반적인 MMO 에서 이동패킷 1초에 4번보냄
+				Thread.Sleep(250);
 			}
 		}
 	}
