@@ -7,8 +7,6 @@ using System.Threading;
 
 namespace DummyClient
 {
-	
-
 	class Program
 	{
 		static void Main(string[] args)
@@ -22,7 +20,7 @@ namespace DummyClient
 			Connector connector = new Connector();
 
 			// 10개 접속하게 하기
-			connector.Connect(endPoint, () => { return SessionManager.Instance.Generate(); }, 500);
+			connector.Connect(endPoint, () => { return SessionManager.Instance.Generate(); }, 100);
 
 			while (true)
 			{

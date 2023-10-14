@@ -10,11 +10,21 @@ namespace Server
     {
         List<ClientSession> _sessions = new List<ClientSession>();
         JobQueue _jobQueue = new JobQueue();
+        List<ArraySegment<byte>> _pendingList = new List<ArraySegment<byte>>(); 
 
         // 할일들의 주문서들을 JobQueue 안에 집어넣고 순차적으로 pop해서 처리
         public void Push(Action job)
         {
             _jobQueue.Push(job);
+        }
+
+        public void Flush()
+        {
+            foreach (ClientSession s in _sessions)
+                s.Send(_pendingList);
+
+            Console.WriteLine($"Flushed {_pendingList.Count} items");
+            _pendingList.Clear();
         }
 
         public void Broadcast(ClientSession session, string chat)
@@ -25,9 +35,7 @@ namespace Server
             packet.chat = $"{chat} I am {packet.playerId}";
             ArraySegment<byte> segment = packet.Write();
 
-            // N^2 상황임
-            foreach (ClientSession s in _sessions)
-                s.Send(segment);
+            _pendingList.Add(segment);  
         }
         public void Enter(ClientSession session)
         {
@@ -39,6 +47,5 @@ namespace Server
         {
                 _sessions.Remove(session);
         }
-
     }
 }
