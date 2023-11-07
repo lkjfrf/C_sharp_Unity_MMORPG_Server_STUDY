@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\ServerCore\\ServerCore.csproj": {}
+    "C:\\Users\\lkjfr\\Downloads\\유니티 연동 #1\\ServerCore\\ServerCore.csproj": {}
   },
   "projects": {
-    "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\ServerCore\\ServerCore.csproj": {
+    "C:\\Users\\lkjfr\\Downloads\\유니티 연동 #1\\ServerCore\\ServerCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\ServerCore\\ServerCore.csproj",
+        "projectUniqueName": "C:\\Users\\lkjfr\\Downloads\\유니티 연동 #1\\ServerCore\\ServerCore.csproj",
         "projectName": "ServerCore",
-        "projectPath": "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\ServerCore\\ServerCore.csproj",
+        "projectPath": "C:\\Users\\lkjfr\\Downloads\\유니티 연동 #1\\ServerCore\\ServerCore.csproj",
         "packagesPath": "C:\\Users\\lkjfr\\.nuget\\packages\\",
-        "outputPath": "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\ServerCore\\obj\\",
+        "outputPath": "C:\\Users\\lkjfr\\Downloads\\유니티 연동 #1\\ServerCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

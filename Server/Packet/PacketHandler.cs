@@ -13,9 +13,10 @@ class PacketHandler
 
 		if (clientSession.Room == null)
 			return;
-		
-		//Action 주문서를 작성해서 그대로 전달해줌
-		clientSession.Room.Push(
-			() => clientSession.Room.Broadcast(clientSession, chatPacket.chat));
+
+		GameRoom room = clientSession.Room;
+		room.Push(
+			() => room.Broadcast(clientSession, chatPacket.chat)
+		);
 	}
 }

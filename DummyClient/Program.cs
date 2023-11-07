@@ -7,6 +7,8 @@ using System.Threading;
 
 namespace DummyClient
 {
+	
+
 	class Program
 	{
 		static void Main(string[] args)
@@ -19,8 +21,9 @@ namespace DummyClient
 
 			Connector connector = new Connector();
 
-			// 10개 접속하게 하기
-			connector.Connect(endPoint, () => { return SessionManager.Instance.Generate(); }, 100);
+			connector.Connect(endPoint, 
+				() => { return SessionManager.Instance.Generate(); },
+				10);
 
 			while (true)
 			{
@@ -33,7 +36,6 @@ namespace DummyClient
 					Console.WriteLine(e.ToString());
 				}
 
-				// 일반적인 MMO 에서 이동패킷 1초에 4번보냄
 				Thread.Sleep(250);
 			}
 		}

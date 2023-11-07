@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "26a3vji8VG+Yp69C5GPyQYC6DKbvqm72ImLjQGo0Nxuz/d5wDWS35jFjuVjMAs+3+jm4/Kx2fA2k53Q5ooOavQ==",
+  "dgSpecHash": "5/JzhVwfLGszeD6pn20uGWLmfhN9oUxb9+yXzoZBeKC90v0rpeFQI/Qv88q62TgeyMzXk4xvNqlRZhTwNXs2Jw==",
   "success": true,
-  "projectFilePath": "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\ServerCore\\ServerCore.csproj",
+  "projectFilePath": "C:\\Users\\lkjfr\\Downloads\\유니티 연동 #1\\ServerCore\\ServerCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lkjfr\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
     "C:\\Users\\lkjfr\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",

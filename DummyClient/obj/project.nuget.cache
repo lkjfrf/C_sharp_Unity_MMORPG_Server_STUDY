@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DyFwMf8uaW12WiGDPDBB83csJ48jRtoJM3+J/CPTeSm6DYtp35mPaREQQRDoWAbmeIZ5SJLBYO7PnxgjUTxPuw==",
+  "dgSpecHash": "+OZoXbjIE45Aj3pQUpVWETYYnatqhpMarEmWh45SIeo7vQhDLoSeQXUpnOCF812etcx6Qok/aAIaGuwcy6RzDA==",
   "success": true,
-  "projectFilePath": "D:\\WorkSpace\\C_sharp_Unity_MMORPG_Server_STUDY\\DummyClient\\DummyClient.csproj",
+  "projectFilePath": "C:\\Users\\lkjfr\\Downloads\\유니티 연동 #1\\DummyClient\\DummyClient.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lkjfr\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
     "C:\\Users\\lkjfr\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
